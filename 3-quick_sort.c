@@ -32,20 +32,21 @@ int lomuto_partition(int *array, int low, int high, size_t size)
 		if (array[j] < pivot)
 		{
 			i++;
-			if (i != j)
+			if (i != j && array[i] != array[j])
 			{
 				swap(&array[i], &array[j]);
 				print_array(array, size);
 			}
 		}
 	}
-	if (i + 1 != high)
+	if ((i + 1) != high && array[i + 1] != array[high])
 	{
 		swap(&array[i + 1], &array[high]);
 		print_array(array, size);
 	}
 	return (i + 1);
 }
+
 
 /**
  * quicksort_recursive - Recursive quicksort using Lomuto partition
